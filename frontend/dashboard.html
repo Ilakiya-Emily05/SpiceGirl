@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spice Girls Dashboard</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h1 class="logo">Spice Girls</h1>
+
+        <nav>
+
+            <a class="active" href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="wardrobe.html">
+                👗 Wardrobe
+            </a>
+
+            <a href="#">
+                ✨ Generator
+            </a>
+
+            <a href="planner.html">
+                📅 Planner
+            </a>
+
+            <a href="#">
+                👤 Profile
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <div class="welcome-section">
+
+            <h1>
+                Good Morning, Nihira 🌸
+            </h1>
+
+            <p>
+                Your wardrobe, your style, your day — all in one place.
+            </p>
+
+        </div>
+
+        <!-- TOP GRID -->
+
+        <div class="top-grid">
+
+            <!-- UPLOAD CARD -->
+
+            <section class="card upload-card">
+
+                <h2>Upload Clothing</h2>
+
+                <p>
+                    Add a new piece to your digital wardrobe.
+                </p>
+
+                <label class="upload-box">
+
+                    <input
+                    type="file"
+                    id="uploadInput"
+                    accept="image/*">
+
+                    <span>
+                        + Upload Image
+                    </span>
+
+                </label>
+
+                <div id="uploadMessage"></div>
+
+            </section>
+
+            <!-- CURRENT OUTFIT -->
+
+            <section class="card outfit-card">
+
+                <h2>Current Outfit 💖</h2>
+
+                <div class="outfit-images">
+
+                    <div class="mini-item">
+                        👚
+                    </div>
+
+                    <div class="mini-item">
+                        👖
+                    </div>
+
+                    <div class="mini-item">
+                        👟
+                    </div>
+
+                </div>
+
+                <h3>
+                    College Presentation
+                </h3>
+
+                <div class="tags">
+
+                    <span>Casual</span>
+
+                    <span>College</span>
+
+                    <span>Spring</span>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- BOTTOM GRID -->
+
+        <div class="bottom-grid">
+
+            <!-- WEATHER -->
+
+            <section class="card weather-card">
+
+                <h2>Weather Today ☀️</h2>
+
+                <h3>34°C • Sunny</h3>
+
+                <p>
+                    It's warm outside today.
+                </p>
+
+                <p>
+                    A breathable cotton outfit will keep you comfortable.
+                </p>
+
+                <div class="reason-tags">
+
+                    <span>Cotton</span>
+
+                    <span>Summer</span>
+
+                    <span>Comfort</span>
+
+                </div>
+
+            </section>
+
+            <!-- EVENT -->
+
+            <section class="card event-card">
+
+                <h2>Upcoming Event 📅</h2>
+
+                <h3>
+                    UX Presentation
+                </h3>
+
+                <p>
+                    Tomorrow • 10:00 AM
+                </p>
+
+                <div class="event-recommendation">
+
+                    <strong>
+                        Suggested Look
+                    </strong>
+
+                    <p>
+                        Smart Casual
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

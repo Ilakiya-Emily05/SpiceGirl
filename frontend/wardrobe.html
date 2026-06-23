@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Spice Girls - My Wardrobe</title>
+
+    <link rel="stylesheet"
+          href="css/wardrobe.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- SEARCH MODAL -->
+
+    <div id="searchModal"
+         class="modal">
+
+        <div class="modal-content">
+
+            <span class="close-modal">
+                &times;
+            </span>
+
+            <h2>Search & Filter</h2>
+
+            <input type="text"
+                   id="searchInput"
+                   placeholder="Search clothing...">
+
+            <div class="filter-section">
+
+                <h3>Basic Style</h3>
+
+                <div class="tag-group">
+
+                    <span class="filter-tag">Cute</span>
+                    <span class="filter-tag">Simple</span>
+                    <span class="filter-tag">Elegant</span>
+                    <span class="filter-tag">Gorgeous</span>
+                    <span class="filter-tag">Cool</span>
+                    <span class="filter-tag">Lively</span>
+                    <span class="filter-tag">Warm</span>
+
+                </div>
+
+            </div>
+
+            <div class="filter-section">
+
+                <h3>Alternative Style</h3>
+
+                <div class="tag-group">
+
+                    <span class="filter-tag">Y2K</span>
+                    <span class="filter-tag">Vintage</span>
+                    <span class="filter-tag">Retro</span>
+                    <span class="filter-tag">Streetwear</span>
+                    <span class="filter-tag">Gothic</span>
+                    <span class="filter-tag">Bohemian</span>
+                    <span class="filter-tag">Punk</span>
+                    <span class="filter-tag">Edgy</span>
+
+                </div>
+
+            </div>
+
+            <div class="filter-section">
+
+                <h3>Occasion</h3>
+
+                <div class="tag-group">
+
+                    <span class="filter-tag">College</span>
+                    <span class="filter-tag">Professional</span>
+                    <span class="filter-tag">Date Night</span>
+                    <span class="filter-tag">Wedding</span>
+                    <span class="filter-tag">Birthday Party</span>
+                    <span class="filter-tag">Formal Event</span>
+                    <span class="filter-tag">Gym</span>
+                    <span class="filter-tag">Holiday</span>
+
+                </div>
+
+            </div>
+
+            <button id="applyFilters">
+                Apply Filters
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+
+    <div id="toast">
+
+        💖 Fit Saved Successfully!
+
+    </div>
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <a href="dashboard.html"
+               class="back-btn">
+
+                ← Dashboard
+
+            </a>
+
+            <div class="logo">
+
+                Spice Girls ✨
+
+            </div>
+
+            <h3>Categories</h3>
+
+            <ul>
+
+                <li data-category="all">
+                    All
+                </li>
+
+                <li data-category="tops">
+                    👚 Tops
+                </li>
+
+                <li data-category="bottoms">
+                    👖 Bottoms
+                </li>
+
+                <li data-category="dresses">
+                    👗 Dresses
+                </li>
+
+                <li data-category="outerwear">
+                    🧥 Outerwear
+                </li>
+
+                <li data-category="shoes">
+                    👟 Shoes
+                </li>
+
+                <li data-category="accessories">
+                    👜 Accessories
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <div class="topbar">
+
+                <div>
+
+                    <h1>
+                        My Digital Wardrobe ✨
+                    </h1>
+
+                    <p>
+                        Organize, select and save your outfits.
+                    </p>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button id="searchBtn">
+
+                        🔍 Search
+
+                    </button>
+
+                    <label class="upload-btn">
+
+                        + Add Clothing
+
+                        <input type="file"
+                               id="uploadInput"
+                               accept="image/*">
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- ACTIVE FILTERS -->
+
+            <div id="activeFilters"
+                 class="active-filters">
+
+            </div>
+
+            <!-- TOPS -->
+
+            <section class="category-section"
+                     data-category="tops">
+
+                <h2>👚 Tops</h2>
+
+                <div class="clothing-grid">
+
+                    <div class="clothing-card"
+                         data-name="White Blouse">
+
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400">
+
+                        <h4>White Blouse</h4>
+
+                        <div class="tags">
+
+                            <span>Cute</span>
+                            <span>College</span>
+                            <span>Cotton</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="clothing-card"
+                         data-name="Pink Tank Top">
+
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400">
+
+                        <h4>Pink Tank Top</h4>
+
+                        <div class="tags">
+
+                            <span>Y2K</span>
+                            <span>Casual</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- BOTTOMS -->
+
+            <section class="category-section"
+                     data-category="bottoms">
+
+                <h2>👖 Bottoms</h2>
+
+                <div class="clothing-grid">
+
+                    <div class="clothing-card"
+                         data-name="Blue Jeans">
+
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
+
+                        <h4>Blue Jeans</h4>
+
+                        <div class="tags">
+
+                            <span>Simple</span>
+                            <span>Denim</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- DRESSES -->
+
+            <section class="category-section"
+                     data-category="dresses">
+
+                <h2>👗 Dresses</h2>
+
+                <div class="clothing-grid">
+
+                    <div class="clothing-card"
+                         data-name="Pink Dress">
+
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400">
+
+                        <h4>Pink Dress</h4>
+
+                        <div class="tags">
+
+                            <span>Elegant</span>
+                            <span>Party</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- OUTFIT BUILDER -->
+
+        <aside class="outfit-sidebar">
+
+            <h2>
+
+                Your Outfit 💖
+
+            </h2>
+
+            <div id="selectedItems">
+
+                <p class="empty-state">
+
+                    No items selected yet.
+
+                </p>
+
+            </div>
+
+            <button id="saveFit">
+
+                Save Fit
+
+            </button>
+
+        </aside>
+
+    </div>
+
+    <script src="js/wardrobe.js"></script>
+
+</body>
+
+</html>

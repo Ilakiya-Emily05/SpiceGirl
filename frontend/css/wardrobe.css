@@ -1,0 +1,692 @@
+/* ==========================
+   ROOT COLORS
+========================== */
+
+:root{
+
+    --primary-pink:#ef2ca7;
+
+    --light-pink:#FFEBF6;
+
+    --background:#F5F5F5;
+
+    --white:#FFFFFF;
+
+    --text:#222222;
+
+    --border:#ececec;
+
+    --success:#4CAF50;
+
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+/* ==========================
+   MAIN LAYOUT
+========================== */
+
+.container{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:260px;
+
+    background:white;
+
+    padding:30px;
+
+    border-right:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    color:var(--primary-pink);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:var(--primary-pink);
+
+    margin-bottom:35px;
+
+}
+
+.sidebar h3{
+
+    margin-bottom:15px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:12px 15px;
+
+    margin-bottom:8px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.sidebar li:hover{
+
+    background:var(--light-pink);
+
+    color:var(--primary-pink);
+
+}
+
+/* ==========================
+   MAIN CONTENT
+========================== */
+
+.main-content{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.topbar h1{
+
+    font-size:36px;
+
+    margin-bottom:5px;
+
+}
+
+.topbar p{
+
+    color:#666;
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+#searchBtn{
+
+    border:none;
+
+    background:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+
+}
+
+.upload-btn{
+
+    background:var(--primary-pink);
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.upload-btn input{
+
+    display:none;
+
+}
+
+/* ==========================
+   ACTIVE FILTERS
+========================== */
+
+.active-filters{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.filter-chip{
+
+    background:var(--light-pink);
+
+    color:var(--primary-pink);
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   CATEGORY SECTION
+========================== */
+
+.category-section{
+
+    margin-bottom:50px;
+
+}
+
+.category-section h2{
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   GRID
+========================== */
+
+.clothing-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+/* ==========================
+   CLOTHING CARD
+========================== */
+
+.clothing-card{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    border:3px solid transparent;
+
+    position:relative;
+
+}
+
+.clothing-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.clothing-card.selected{
+
+    border:3px solid var(--success);
+
+}
+
+.clothing-card.selected::before{
+
+    content:"✓ Selected";
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    background:var(--success);
+
+    color:white;
+
+    padding:4px 8px;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+.clothing-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+.clothing-card h4{
+
+    margin-top:12px;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================
+   TAGS
+========================== */
+
+.tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+}
+
+.tags span{
+
+    background:var(--light-pink);
+
+    color:var(--primary-pink);
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+}
+
+/* ==========================
+   OUTFIT SIDEBAR
+========================== */
+
+.outfit-sidebar{
+
+    width:300px;
+
+    background:white;
+
+    border-left:1px solid var(--border);
+
+    padding:30px;
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+.outfit-sidebar h2{
+
+    color:var(--primary-pink);
+
+    margin-bottom:25px;
+
+}
+
+.empty-state{
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+.selected-item{
+
+    background:var(--light-pink);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+
+}
+
+#saveFit{
+
+    width:100%;
+
+    margin-top:20px;
+
+    border:none;
+
+    background:var(--primary-pink);
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    z-index:999;
+
+}
+
+.modal-content{
+
+    width:800px;
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    margin:40px auto;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    position:relative;
+
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.modal-content h2{
+
+    margin-bottom:20px;
+
+}
+
+#searchInput{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+}
+
+.filter-section{
+
+    margin-bottom:25px;
+
+}
+
+.filter-section h3{
+
+    margin-bottom:10px;
+
+}
+
+.tag-group{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.filter-tag{
+
+    background:var(--light-pink);
+
+    color:var(--primary-pink);
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.filter-tag:hover{
+
+    transform:scale(1.05);
+
+}
+
+.filter-tag.active{
+
+    background:var(--primary-pink);
+
+    color:white;
+
+}
+
+#applyFilters{
+
+    width:100%;
+
+    margin-top:15px;
+
+    border:none;
+
+    background:var(--primary-pink);
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   TOAST
+========================== */
+
+#toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:var(--primary-pink);
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.3s;
+
+    z-index:1000;
+
+}
+
+#toast.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1200px){
+
+    .outfit-sidebar{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+}

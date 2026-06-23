@@ -1,0 +1,307 @@
+:root{
+    --primary-pink:#ef2ca7;
+    --light-pink:#ffe5f8;
+    --bg:#f7f7f7;
+    --white:#ffffff;
+    --text:#222222;
+    --shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:var(--bg);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:280px;
+    background:white;
+    border-right:2px solid #f5d7ec;
+    padding:30px;
+}
+
+.logo{
+    font-size:2.4rem;
+    font-weight:700;
+    color:var(--primary-pink);
+    margin-bottom:45px;
+    line-height:1.1;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.sidebar nav a{
+    text-decoration:none;
+    color:#444;
+    font-size:1rem;
+    font-weight:600;
+    padding:16px 18px;
+    border-radius:18px;
+    transition:0.3s;
+}
+
+.sidebar nav a:hover{
+    background:#fff3fc;
+}
+
+.sidebar nav a.active{
+    background:#ffe5f8;
+    color:var(--primary-pink);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    flex:1;
+    padding:30px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.welcome-section{
+    margin-bottom:25px;
+}
+
+.welcome-section h1{
+    font-size:2.2rem;
+    font-weight:700;
+    color:var(--text);
+}
+
+.welcome-section p{
+    margin-top:8px;
+    color:#666;
+    font-size:1rem;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.top-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.bottom-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:25px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+    border-radius:28px;
+    padding:24px;
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+    font-size:1.6rem;
+    color:var(--text);
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#555;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-card p{
+    margin-bottom:18px;
+}
+
+.upload-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:190px;
+
+    border:4px dashed var(--primary-pink);
+    border-radius:24px;
+
+    cursor:pointer;
+
+    color:var(--primary-pink);
+
+    font-size:1.3rem;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    background:#fff5fc;
+}
+
+.upload-box input{
+    display:none;
+}
+
+#uploadMessage{
+    margin-top:15px;
+    color:green;
+    font-weight:600;
+}
+
+/* =========================
+   CURRENT OUTFIT
+========================= */
+
+.outfit-images{
+    display:flex;
+    gap:15px;
+    margin:18px 0;
+}
+
+.mini-item{
+    width:60px;
+    height:60px;
+
+    background:#ffe5f8;
+
+    border-radius:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.8rem;
+}
+
+.outfit-card h3{
+    font-size:1.3rem;
+    margin-bottom:12px;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.tags,
+.reason-tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.tags span,
+.reason-tags span{
+    background:#ffe5f8;
+    color:var(--primary-pink);
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+/* =========================
+   WEATHER
+========================= */
+
+.weather-card h3{
+    margin-top:12px;
+    margin-bottom:12px;
+    font-size:1.2rem;
+}
+
+.weather-card p{
+    margin-bottom:10px;
+    line-height:1.5;
+}
+
+/* =========================
+   EVENT
+========================= */
+
+.event-card h3{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+.event-card p{
+    margin-top:8px;
+}
+
+.event-recommendation{
+    margin-top:18px;
+}
+
+.event-style{
+    background:#ffe5f8;
+    padding:12px;
+    border-radius:14px;
+    margin-top:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+    .top-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bottom-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:900px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:2px solid #f5d7ec;
+    }
+
+    .logo{
+        font-size:2rem;
+    }
+}

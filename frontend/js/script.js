@@ -11,9 +11,9 @@ loginBtn.addEventListener("click", async (e) => {
         document.getElementById("password").value;
 
     try {
-
+s̱
         const response = await fetch(
-            "http://localhost:8000/api/v1/auth/login",
+            "http://localhost:8000/auth/login",
             {
                 method: "POST",
 
