@@ -43,17 +43,6 @@ Spice Girl is a smart wardrobe management and outfit recommendation platform tha
 * Schedule outfits for future events
 * Maintain outfit history
 
-### Gamification
-
-* Style streaks
-* Achievement badges
-* Fashion milestones
-
-### Community Features
-
-* Share outfit combinations
-* Community voting
-* Style inspiration feed
 
 ---
 
