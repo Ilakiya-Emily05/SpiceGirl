@@ -1,4 +1,10 @@
 // =========================
+// CONFIG
+// =========================
+
+const BASE_URL = "http://localhost:8000";
+
+// =========================
 // SEARCH MODAL
 // =========================
 
@@ -101,35 +107,25 @@ document.getElementById("selectedItems");
 function updateOutfitPanel(){
 
     const selectedCards =
-    document.querySelectorAll(
-        ".clothing-card.selected"
-    );
+    document.querySelectorAll(".clothing-card.selected");
 
     selectedItems.innerHTML = "";
 
     if(selectedCards.length === 0){
 
         selectedItems.innerHTML =
-
-        `
-        <p class="empty-state">
-        No items selected yet.
-        </p>
-        `;
+        `<p class="empty-state">No items selected yet.</p>`;
 
         return;
     }
 
     selectedCards.forEach(card => {
 
-        const name =
-        card.dataset.name;
+        const name = card.dataset.name;
 
-        const item =
-        document.createElement("div");
+        const item = document.createElement("div");
 
-        item.className =
-        "selected-item";
+        item.className = "selected-item";
 
         item.textContent = name;
 
@@ -138,6 +134,10 @@ function updateOutfitPanel(){
     });
 
 }
+
+// =========================
+// CARD CLICK SELECTION
+// =========================
 
 cards.forEach(card => {
 
@@ -152,7 +152,7 @@ cards.forEach(card => {
 });
 
 // =========================
-// SAVE FIT BUTTON
+// SAVE FIT BUTTON (BACKEND CONNECTED)
 // =========================
 
 const saveBtn =
@@ -161,30 +161,46 @@ document.getElementById("saveFit");
 const toast =
 document.getElementById("toast");
 
-saveBtn.addEventListener("click", () => {
+saveBtn.addEventListener("click", async () => {
 
     const selectedCards =
-    document.querySelectorAll(
-        ".clothing-card.selected"
-    );
+    document.querySelectorAll(".clothing-card.selected");
 
     if(selectedCards.length === 0){
 
-        alert(
-        "Select at least one clothing item."
-        );
-
+        alert("Select at least one clothing item.");
         return;
 
+    }
+
+    const clothing_ids = Array.from(selectedCards).map(card => card.dataset.name);
+
+    try {
+
+        await fetch(`${BASE_URL}/outfits/save`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                occasion: "College",
+                clothing_ids: clothing_ids
+            })
+
+        });
+
+    } catch (err) {
+        console.error("Save outfit failed:", err);
     }
 
     toast.classList.add("show");
 
     setTimeout(() => {
-
         toast.classList.remove("show");
-
-    },2500);
+    }, 2500);
 
 });
 
@@ -193,53 +209,32 @@ saveBtn.addEventListener("click", () => {
 // =========================
 
 const categoryButtons =
-document.querySelectorAll(
-    ".sidebar li"
-);
+document.querySelectorAll(".sidebar li");
 
 const categorySections =
-document.querySelectorAll(
-    ".category-section"
-);
+document.querySelectorAll(".category-section");
 
 categoryButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const category =
-        button.dataset.category;
+        const category = button.dataset.category;
 
         if(category === "all"){
 
-            categorySections
-            .forEach(section => {
-
-                section.style.display =
-                "block";
-
+            categorySections.forEach(section => {
+                section.style.display = "block";
             });
 
             return;
         }
 
-        categorySections
-        .forEach(section => {
+        categorySections.forEach(section => {
 
-            if(
-                section.dataset.category
-                === category
-            ){
-
-                section.style.display =
-                "block";
-
-            }
-
-            else{
-
-                section.style.display =
-                "none";
-
+            if(section.dataset.category === category){
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
             }
 
         });
@@ -253,125 +248,99 @@ categoryButtons.forEach(button => {
 // =========================
 
 const searchInput =
-document.getElementById(
-    "searchInput"
-);
+document.getElementById("searchInput");
 
-searchInput.addEventListener(
-    "keyup",
-    () => {
+searchInput.addEventListener("keyup", () => {
 
-        const searchValue =
-        searchInput.value
-        .toLowerCase();
+    const searchValue =
+    searchInput.value.toLowerCase();
 
-        document
-        .querySelectorAll(
-            ".clothing-card"
-        )
-        .forEach(card => {
+    document.querySelectorAll(".clothing-card")
+    .forEach(card => {
 
-            const name =
-            card.dataset.name
-            .toLowerCase();
+        const name = card.dataset.name.toLowerCase();
 
-            if(
-                name.includes(searchValue)
-            ){
+        if(name.includes(searchValue)){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
 
-                card.style.display =
-                "block";
+    });
 
-            }
-
-            else{
-
-                card.style.display =
-                "none";
-
-            }
-
-        });
-
-    }
-);
+});
 
 // =========================
-// UPLOAD CLOTHING
+// UPLOAD CLOTHING (BACKEND CONNECTED)
 // =========================
 
 const uploadInput =
-document.getElementById(
-    "uploadInput"
-);
+document.getElementById("uploadInput");
 
-uploadInput.addEventListener(
-    "change",
-    function(){
+uploadInput.addEventListener("change", function(){
 
-        const file =
-        this.files[0];
+    const file = this.files[0];
 
-        if(!file) return;
+    if(!file) return;
 
-        const reader =
-        new FileReader();
+    const reader = new FileReader();
 
-        reader.onload =
-        function(event){
+    reader.onload = async function(event){
 
-            const topsGrid =
-            document
-            .querySelector(
-                '[data-category="tops"] .clothing-grid'
-            );
+        const imageBase64 = event.target.result;
 
-            const card =
-            document
-            .createElement("div");
-
-            card.className =
-            "clothing-card";
-
-            card.dataset.name =
-            file.name;
-
-            card.innerHTML =
-
-            `
-            <img src="${event.target.result}">
-
-            <h4>${file.name}</h4>
-
-            <div class="tags">
-
-                <span>New</span>
-
-            </div>
-            `;
-
-            topsGrid.appendChild(card);
-
-            card.addEventListener(
-                "click",
-                () => {
-
-                    card.classList
-                    .toggle("selected");
-
-                    updateOutfitPanel();
-
-                }
-            );
-
+        const clothingItem = {
+            name: file.name,
+            category: "Top",
+            color: "White",
+            season: "Summer",
+            style: "Casual",
+            image_url: imageBase64
         };
 
-        reader.readAsDataURL(
-            file
-        );
+        // SEND TO BACKEND
+        try {
+            await fetch(`${BASE_URL}/clothes/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(clothingItem)
+            });
+        } catch (err) {
+            console.error("Upload failed:", err);
+        }
 
-    }
-);
+        // UI LOGIC (UNCHANGED)
+        const topsGrid =
+        document.querySelector('[data-category="tops"] .clothing-grid');
+
+        const card = document.createElement("div");
+
+        card.className = "clothing-card";
+
+        card.dataset.name = file.name;
+
+        card.innerHTML = `
+            <img src="${imageBase64}">
+            <h4>${file.name}</h4>
+            <div class="tags">
+                <span>New</span>
+            </div>
+        `;
+
+        topsGrid.appendChild(card);
+
+        card.addEventListener("click", () => {
+            card.classList.toggle("selected");
+            updateOutfitPanel();
+        });
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
 
 // =========================
 // INITIAL STATE
