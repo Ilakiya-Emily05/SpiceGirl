@@ -4,6 +4,11 @@
 
 Spice Girl is a smart wardrobe management and outfit recommendation platform that helps users organize their clothing collections and receive personalized outfit suggestions based on wardrobe contents, weather conditions, calendar events, and personal style preferences.
 
+Author:
+Ilakiya Emily Joseph
+NihiraSree M
+
+
 ## Features
 
 ### Digital Wardrobe
