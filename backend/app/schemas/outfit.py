@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from uuid import UUID
-from typing import List
+from typing import List, Optional
 
 
 class OutfitCreate(BaseModel):
@@ -13,6 +13,10 @@ class OutfitResponse(BaseModel):
     user_id: UUID
     occasion: str
     score: int
+
+    # 🔥 AI EXPLANATION LAYER
+    explanation: Optional[str] = None
+    clothing_ids: List[UUID]
 
     class Config:
         from_attributes = True

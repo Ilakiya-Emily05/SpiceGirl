@@ -16,5 +16,8 @@ class EventResponse(BaseModel):
     event_type: str
     event_date: datetime
 
+    # 🔥 AI CONTEXT BOOST
+    dress_code: Optional[str] = None
+
     class Config:
         from_attributes = True

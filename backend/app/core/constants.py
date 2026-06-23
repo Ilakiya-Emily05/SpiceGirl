@@ -1,24 +1,22 @@
-
-
-CATEGORIES = [
+CATEGORIES = (
     "Top",
     "Bottom",
     "Dress",
     "Outerwear",
     "Footwear",
     "Accessory"
-]
+)
 
-SEASONS = [
+SEASONS = (
     "Summer",
     "Winter",
     "Monsoon",
     "Spring",
     "Autumn",
     "All"
-]
+)
 
-EVENT_TYPES = [
+EVENT_TYPES = (
     "College",
     "Interview",
     "Wedding",
@@ -27,18 +25,18 @@ EVENT_TYPES = [
     "Party",
     "Festive",
     "Conference"
-]
+)
 
-STYLES = [
+STYLES = (
     "Casual",
     "Professional",
     "Formal",
     "Streetwear",
     "Minimalist",
     "Traditional"
-]
+)
 
-COLORS = [
+COLORS = (
     "Black",
     "White",
     "Blue",
@@ -50,4 +48,4 @@ COLORS = [
     "Purple",
     "Beige",
     "Yellow"
-]
+)

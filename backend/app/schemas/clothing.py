@@ -31,5 +31,9 @@ class ClothingResponse(BaseModel):
     style: str
     image_url: Optional[str]
 
+    # 🔥 AI LAYER (important for recommendation explanation)
+    formality_score: Optional[float] = 0.5
+    usage_count: Optional[float] = 0
+
     class Config:
         from_attributes = True

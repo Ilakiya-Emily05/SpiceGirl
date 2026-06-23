@@ -1,37 +1,31 @@
+from collections import defaultdict
+from typing import Dict, List
+
+
 class PreferenceService:
 
     @staticmethod
-    def calculate_preferences(clothes):
+    def calculate_preferences(clothes: List):
 
-        color_count = {}
-        style_count = {}
+        color_score = defaultdict(float)
+        style_score = defaultdict(float)
 
         for item in clothes:
 
-            color_count[item.color] = (
-                color_count.get(item.color, 0) + 1
-            )
+            # 🔥 usage weight matters now
+            weight = getattr(item, "usage_count", 1) + 1
 
-            style_count[item.style] = (
-                style_count.get(item.style, 0) + 1
-            )
+            color_score[item.color] += weight
+            style_score[item.style] += weight
 
-        favorite_color = None
-        favorite_style = None
-
-        if color_count:
-            favorite_color = max(
-                color_count,
-                key=color_count.get
-            )
-
-        if style_count:
-            favorite_style = max(
-                style_count,
-                key=style_count.get
-            )
+        favorite_color = max(color_score, key=color_score.get) if color_score else None
+        favorite_style = max(style_score, key=style_score.get) if style_score else None
 
         return {
             "favorite_color": favorite_color,
-            "favorite_style": favorite_style
+            "favorite_style": favorite_style,
+
+            # 🔥 AI SIGNALS (IMPORTANT FOR RECOMMENDER)
+            "color_distribution": dict(color_score),
+            "style_distribution": dict(style_score)
         }
