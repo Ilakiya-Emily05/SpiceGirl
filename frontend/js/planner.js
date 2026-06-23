@@ -38,8 +38,11 @@ const outfits = {
         event: "Google Interview",
         description: "Professional and polished style."
     }
-
 };
+
+// =========================
+// CALENDAR RENDER
+// =========================
 
 function renderCalendar(){
 
@@ -49,28 +52,24 @@ function renderCalendar(){
     const month = currentDate.getMonth();
 
     monthTitle.textContent =
-        currentDate.toLocaleString("default",{
-            month:"long",
-            year:"numeric"
+        currentDate.toLocaleString("default", {
+            month: "long",
+            year: "numeric"
         });
 
     const firstDay =
-        new Date(year,month,1).getDay();
+        new Date(year, month, 1).getDay();
 
     const daysInMonth =
-        new Date(year,month+1,0).getDate();
+        new Date(year, month + 1, 0).getDate();
 
-    for(let i=0;i<firstDay;i++){
-
-        const empty = document.createElement("div");
-        calendarGrid.appendChild(empty);
-
+    for(let i = 0; i < firstDay; i++){
+        calendarGrid.appendChild(document.createElement("div"));
     }
 
-    for(let day=1; day<=daysInMonth; day++){
+    for(let day = 1; day <= daysInMonth; day++){
 
-        const dayBox =
-            document.createElement("div");
+        const dayBox = document.createElement("div");
 
         dayBox.classList.add("day");
 
@@ -80,13 +79,10 @@ function renderCalendar(){
 
         dayBox.textContent = day;
 
-        dayBox.addEventListener("click",()=>{
+        dayBox.addEventListener("click", () => {
 
-            document
-                .querySelectorAll(".day")
-                .forEach(d=>{
-                    d.classList.remove("active");
-                });
+            document.querySelectorAll(".day")
+                .forEach(d => d.classList.remove("active"));
 
             dayBox.classList.add("active");
 
@@ -95,76 +91,61 @@ function renderCalendar(){
         });
 
         calendarGrid.appendChild(dayBox);
-
     }
-
 }
+
+// =========================
+// PANEL UPDATE
+// =========================
 
 function updateOutfitPanel(day){
 
     const selected = outfits[day];
 
+    const monthName = currentDate.toLocaleString("default", {
+        month: "long"
+    });
+
     if(selected){
 
         outfitImage.src = selected.image;
+        outfitName.textContent = selected.name;
+        outfitDate.textContent = `Planned for ${monthName} ${day}`;
+        eventTitle.textContent = selected.event;
+        eventDescription.textContent = selected.description;
 
-        outfitName.textContent =
-            selected.name;
+    } else {
 
-        outfitDate.textContent =
-            "Planned for June " + day;
-
-        eventTitle.textContent =
-            selected.event;
-
-        eventDescription.textContent =
-            selected.description;
-
+        outfitImage.src = "images/default-fit.jpg";
+        outfitName.textContent = "No Outfit Planned";
+        outfitDate.textContent = "No outfit assigned";
+        eventTitle.textContent = "No Event";
+        eventDescription.textContent = "Select a date to plan an outfit.";
     }
-
-    else{
-
-        outfitImage.src =
-            "images/default-fit.jpg";
-
-        outfitName.textContent =
-            "No Outfit Planned";
-
-        outfitDate.textContent =
-            "No outfit assigned";
-
-        eventTitle.textContent =
-            "No Event";
-
-        eventDescription.textContent =
-            "Select a date to plan an outfit.";
-
-    }
-
 }
 
-document
-.getElementById("prevMonth")
-.addEventListener("click",()=>{
+// =========================
+// NAVIGATION
+// =========================
 
-    currentDate.setMonth(
-        currentDate.getMonth()-1
-    );
+document.getElementById("prevMonth")
+.addEventListener("click", () => {
 
+    currentDate.setMonth(currentDate.getMonth() - 1);
     renderCalendar();
 
 });
 
-document
-.getElementById("nextMonth")
-.addEventListener("click",()=>{
+document.getElementById("nextMonth")
+.addEventListener("click", () => {
 
-    currentDate.setMonth(
-        currentDate.getMonth()+1
-    );
-
+    currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar();
 
 });
+
+// =========================
+// INIT
+// =========================
 
 renderCalendar();
