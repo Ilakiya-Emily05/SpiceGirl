@@ -1,122 +1,60 @@
-const loginBtn = document.getElementById("loginBtn");
 
-loginBtn.addEventListener("click", async (e) => {
-
-    e.preventDefault();
-
-    const email =
-        document.getElementById("email").value;
-
-    const password =
-        document.getElementById("password").value;
-const loginBtn = document.getElementById("loginBtn");
+const loginForm = document.getElementById("loginForm");
 
 const BASE_URL = "http://localhost:8000";
 
-loginBtn.addEventListener("click", async (e) => {
+loginForm.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const email =
-        document.getElementById("email").value;
-
-    const password =
-        document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     try {
 
-        const response = await fetch(
-            `${BASE_URL}/auth/login`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            }
-        );
+        const response = await fetch(`${BASE_URL}/auth/login`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email,
+                password
+            })
+
+        });
 
         const data = await response.json();
 
-        if(response.ok){
+        console.log("Server Response:", data);
 
-            console.log("Login Successful", data);
+        if (response.ok) {
 
-            // safer token handling
             localStorage.setItem(
                 "token",
                 data.access_token || data.token
             );
 
-            window.location.href =
-                "dashboard.html";
+            alert("✨ Login Successful!");
+
+            window.location.href = "dashboard.html";
 
         } else {
 
-            console.log("Login failed:", data);
-
             alert(
-                data.detail || "Invalid email or password"
+                data.detail || "Invalid email or password."
             );
 
         }
 
-    } catch(error){
+    } catch (error) {
 
-        console.error("Server error:", error);
+        console.error("Login Error:", error);
 
-        alert("Server connection failed");
-    }
-
-});
-    try {
-s̱
-        const response = await fetch(
-            "http://localhost:8000/auth/login",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if(response.ok){
-
-            console.log("Login Successful");
-
-            localStorage.setItem(
-                "token",
-                data.access_token
-            );
-
-            window.location.href =
-                "dashboard.html";
-
-        }else{
-
-            console.log("Invalid Credentials");
-
-            alert("Invalid email or password");
-
-        }
-
-    } catch(error){
-
-        console.error(error);
-
-        alert("Server connection failed");
+        alert("Unable to connect to backend server.");
 
     }
 

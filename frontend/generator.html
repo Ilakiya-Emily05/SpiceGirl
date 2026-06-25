@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Spice Girls | AI Generator</title>
+
+    <link rel="stylesheet"
+          href="css/generator.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ==========================
+            SIDEBAR
+    =========================== -->
+
+    <aside class="sidebar">
+
+        <h1 class="logo">
+            Spice Girls
+        </h1>
+
+        <nav>
+
+            <a href="dashboard.html">
+
+                🏠 Dashboard
+
+            </a>
+
+            <a href="wardrobe.html">
+
+                👗 Wardrobe
+
+            </a>
+
+            <a class="active"
+               href="generator.html">
+
+                ✨ Generator
+
+            </a>
+
+            <a href="planner.html">
+
+                📅 Planner
+
+            </a>
+
+            <a href="profile.html">
+
+                👤 Profile
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ==========================
+            MAIN
+    =========================== -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <section class="page-header">
+
+            <h1>
+
+                ✨ AI Outfit Generator
+
+            </h1>
+
+            <p>
+
+                Your personal AI stylist powered by your digital wardrobe.
+
+            </p>
+
+        </section>
+
+        <!-- Quick Prompts -->
+
+        <section class="quick-prompts">
+
+            <button class="prompt-btn">
+                🎓 College
+            </button>
+
+            <button class="prompt-btn">
+                💼 Interview
+            </button>
+
+            <button class="prompt-btn">
+                🎉 Party
+            </button>
+
+            <button class="prompt-btn">
+                ☕ Casual
+            </button>
+
+            <button class="prompt-btn">
+                💍 Wedding
+            </button>
+
+            <button class="prompt-btn">
+                ✈ Vacation
+            </button>
+
+        </section>
+
+        <!-- Main Grid -->
+
+        <div class="generator-grid">
+
+            <!-- ======================
+                CHAT CARD
+            ======================= -->
+
+            <section class="card chat-card">
+
+                <h2>
+
+                    🤖 Spice Girls AI
+
+                </h2>
+
+                <div id="chatArea"
+                     class="chat-area">
+
+                    <div class="ai-message">
+
+                        <strong>
+
+                            Spice Girls AI
+
+                        </strong>
+
+                        <p>
+
+                            Hi Nihira! 👋
+
+                        </p>
+
+                        <p>
+
+                            Tell me about today's occasion and
+                            I'll create an outfit from your wardrobe.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="typing-status"
+                     id="typingStatus">
+
+                    Ready to style you ✨
+
+                </div>
+
+                <div class="chat-input">
+
+                    <textarea
+
+                        id="userPrompt"
+
+                        placeholder="Describe your occasion or ask for an outfit..."></textarea>
+
+                    <button id="generateBtn">
+
+                        ✨ Generate Outfit
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ======================
+                OUTFIT CARD
+            ======================= -->
+
+            <section class="card outfit-card">
+
+                <div class="outfit-header">
+
+                    <h2>
+
+                        👗 Today's Outfit
+
+                    </h2>
+
+                    <span class="match-score">
+
+                        ⭐ 96% Match
+
+                    </span>
+
+                </div>
+
+                <div class="outfit-items">
+
+                    <div class="item-card">
+
+                        <div class="emoji" id="topEmoji">
+
+                            👚
+
+                        </div>
+
+                        <h3 id="topName">
+
+                            White Blouse
+
+                        </h3>
+
+                        <p id="topType">
+
+                            Elegant Top
+
+                        </p>
+
+                    </div>
+
+                    <div class="item-card">
+
+                        <div class="emoji" id="bottomEmoji">
+
+                            👖
+
+                        </div>
+
+                        <h3>
+
+                            Black Trousers
+
+                        </h3>
+
+                        <p id="bottomType">
+
+                            Smart Casual
+
+                        </p>
+
+                    </div>
+
+                    <div class="item-card">
+
+                        <div class="emoji" id="shoeEmoji">
+
+                            👟
+
+                        </div>
+
+                        <h3 id="shoeName">
+
+                            White Sneakers
+
+                        </h3>
+
+                        <p>
+
+                            Comfortable
+
+                        </p>
+
+                    </div>
+
+                    <div class="item-card">
+
+                        <div class="emoji" id="accessoryEmoji">
+
+                            👜
+
+                        </div>
+
+                        <h3 id="accessoryName">
+
+                            Black Tote Bag
+
+                        </h3>
+
+                        <p id="accessoryType">
+
+                            Minimal
+
+                        </p>
+
+                    </div>
+
+                </div>
+                                </div>
+
+            </section>
+
+        </div>
+
+        <!-- ======================
+            AI EXPLANATION
+        ======================= -->
+
+        <section class="card reason-card">
+
+            <h2>
+                💡 Why this outfit?
+            </h2>
+
+            <div class="reason-grid">
+
+                <div class="reason-item">
+
+                    <span class="reason-icon">🌤</span>
+
+                    <div>
+
+                        <h3>Weather Friendly</h3>
+
+                        <p>
+                            Light and breathable fabrics keep you comfortable in today's warm weather.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="reason-item">
+
+                    <span class="reason-icon">🎨</span>
+
+                    <div>
+
+                        <h3>Matches Your Style</h3>
+
+                        <p>
+                            Selected based on your preferred elegant and minimalist fashion style.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="reason-item">
+
+                    <span class="reason-icon">📅</span>
+
+                    <div>
+
+                        <h3>Perfect for the Occasion</h3>
+
+                        <p>
+                            Ideal for a college presentation with a balance of professionalism and comfort.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="reason-item">
+
+                    <span class="reason-icon">👗</span>
+
+                    <div>
+
+                        <h3>From Your Wardrobe</h3>
+
+                        <p>
+                            Every clothing item already exists in your digital wardrobe.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================
+            WEATHER CARD
+        ======================= -->
+
+        <section class="card weather-card">
+
+            <h2>
+                ☀ Today's Weather
+            </h2>
+
+            <div class="weather-info">
+
+                <h3>
+                    34°C • Sunny
+                </h3>
+
+                <p>
+
+                    Warm weather today.
+
+                    Light cotton fabrics and breathable footwear are recommended.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ======================
+            ACTION BUTTONS
+        ======================= -->
+
+        <div class="action-buttons">
+
+            <button class="save-btn">
+
+                ♡ Save Outfit
+
+            </button>
+
+            <button class="planner-btn">
+
+                📅 Add to Planner
+
+            </button>
+
+            <button class="again-btn">
+
+                🔄 Generate Again
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/generator.js"></script>
+
+</body>
+
+</html>

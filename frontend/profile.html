@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spice Girls | Profile</title>
+
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ===========================
+            SIDEBAR
+    ============================ -->
+
+    <aside class="sidebar">
+
+        <h1 class="logo">
+            Spice Girls
+        </h1>
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="wardrobe.html">
+                👗 Wardrobe
+            </a>
+
+            <a href="#">
+                ✨ Generator
+            </a>
+
+            <a href="planner.html">
+                📅 Planner
+            </a>
+
+            <a class="active" href="profile.html">
+                👤 Profile
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ===========================
+            MAIN CONTENT
+    ============================ -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <section class="page-header">
+
+            <h1>
+                👤 My Profile
+            </h1>
+
+            <p>
+                Manage your wardrobe preferences and personalize your AI stylist.
+            </p>
+
+        </section>
+
+        <!-- ===========================
+            TOP GRID
+        ============================ -->
+
+        <div class="top-grid">
+
+            <!-- ======================
+                PROFILE CARD
+            ======================= -->
+
+            <section class="card profile-card">
+
+                <div class="profile-image-container">
+
+                    <img
+                       id="profileImage"
+                       src="images/profile-placeholder.jpg"
+                       alt="Profile Picture">
+
+                </div>
+
+                <label for="profileUpload" class="upload-btn">
+
+                    Upload Photo
+                </label> 
+                <input
+                    type="file"
+                    id="profileUpload"
+                    accept="image/*"
+                    hidden>
+
+                <h2 id="profileName">
+                    Nihira Sree
+                </h2>
+
+                <p id="profileEmail">
+                    nihira@example.com
+                </p>
+
+                <div class="profile-info">
+
+                    <div class="info-item">
+
+                        <span class="label">
+                            Member Since
+                        </span>
+
+                        <span>
+                            June 2026
+                        </span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <span class="label">
+                            Account Type
+                        </span>
+
+                        <span>
+                            Premium Stylist
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ======================
+                STYLE PREFERENCES
+            ======================= -->
+
+            <section class="card preferences-card">
+
+                <h2>
+                    🎨 Style Preferences
+                </h2>
+
+                <div class="form-group">
+
+                    <label>
+                        Favorite Style
+                    </label>
+
+                    <select id="favoriteStyle">
+
+                        <option>Casual</option>
+
+                        <option>Elegant</option>
+
+                        <option>Professional</option>
+
+                        <option>Streetwear</option>
+
+                        <option>Minimalist</option>
+
+                        <option>Y2K</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Favorite Color
+                    </label>
+
+                    <select id="favoriteColor">
+
+                        <option>Black</option>
+
+                        <option>Pink</option>
+
+                        <option>White</option>
+
+                        <option>Blue</option>
+
+                        <option>Green</option>
+
+                        <option>Beige</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Season
+                    </label>
+
+                    <select id="season">
+
+                        <option>Summer</option>
+
+                        <option>Winter</option>
+
+                        <option>Spring</option>
+
+                        <option>Autumn</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Fashion Goals
+                    </label>
+
+                    <div class="checkbox-group">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                checked>
+
+                            College
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                checked>
+
+                            Office
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="checkbox">
+
+                            Party
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="checkbox">
+
+                            Vacation
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="checkbox">
+
+                            Traditional
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="checkbox">
+
+                            Sports
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- Bottom Grid Starts Here -->
+        <div class="bottom-grid">
+                        <!-- ======================
+                WARDROBE STATISTICS
+            ======================= -->
+
+            <section class="card stats-card">
+
+                <h2>📊 Wardrobe Statistics</h2>
+
+                <div class="stats-grid">
+
+                    <div class="stat-box">
+                        <span class="stat-icon">👚</span>
+                        <h3 id="clothesCount">0</h3>
+                        <p>Clothes</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <span class="stat-icon">👗</span>
+                        <h3 id="outfitsCount">0</h3>
+                        <p>Saved Outfits</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <span class="stat-icon">📅</span>
+                        <h3 id="eventsCount">0</h3>
+                        <p>Planned Events</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <span class="stat-icon">⭐</span>
+                        <h3 id="aiScore">--</h3>
+                        <p>AI Match</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ======================
+                STYLE SUMMARY
+            ======================= -->
+
+            <section class="card summary-card">
+
+                <h2>✨ Style Summary</h2>
+
+                <div class="summary-tags">
+
+                    <span>Elegant</span>
+
+                    <span>Minimal</span>
+
+                    <span>College Ready</span>
+
+                    <span>Summer Friendly</span>
+
+                </div>
+
+                <p class="summary-text">
+                    Your wardrobe reflects a clean, modern style with
+                    comfortable everyday outfits and elegant combinations
+                    suitable for college and casual occasions.
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- ======================
+            QUOTE
+        ======================= -->
+
+        <section class="card quote-card">
+
+            <h2>💖 Style Inspiration</h2>
+
+            <blockquote>
+                "Confidence is your best outfit. Wear it every day."
+            </blockquote>
+
+        </section>
+
+        <!-- ======================
+            ACTION BUTTONS
+        ======================= -->
+
+        <div class="action-buttons">
+
+            <button id="saveBtn" class="save-btn">
+                💾 Save Changes
+            </button>
+
+            <button id="logoutBtn" class="logout-btn">
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>
